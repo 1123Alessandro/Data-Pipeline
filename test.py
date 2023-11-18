@@ -1,15 +1,29 @@
-# C:\Users\araza\Documents\testcode\python
+import pandas as pd
+import pyperclip as pc
 
-# import os
-# import re
-# import pandas as pd
-# import pyperclip as pc
-from gremlin import *
+bs = pd.read_json('./branch_service_transaction_info.json')
+ct = pd.read_json('./customer_transaction_info.json')
 
-# with open('test.json', 'w') as file:
-#     file.write(s)
+print(ct['txn_id'].shape)
+print(ct['txn_id'].nunique())
 
-# s = lats(True, './Project Dataset/Operations Department/line_item_data_prices1.csv')
-
-for i in range(100):
+for i in ct.columns:
+    x = ct[i]
+    print(f'{i}: {x.dtype}')
+    print(f'{x.shape[0]} elements with {x.nunique()} unique elements')
+    print(x.unique())
+    print('--------------------------------------------------')
     print()
+
+for i in bs.columns:
+    x = bs[i]
+    print(f'{i}: {x.dtype}')
+    print(f'{x.shape[0]} elements with {x.nunique()} unique elements')
+    print(x.unique())
+    print('--------------------------------------------------')
+    print()
+
+bs['price'].dtype
+
+bs.query('price > 99')
+
