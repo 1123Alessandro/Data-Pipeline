@@ -8,7 +8,7 @@ mm = mm.drop(mm[mm.branch_name.isna()].index)
 mm = mm.drop(mm[mm.avail_date < mm.birthday].index)
 mm = mm.drop_duplicates(['txn_id'])
 
-mm.to_parquet('')
+mm.to_parquet('Transaction Table.parquet')
 
 print('Final Transaction Table:')
 print(mm)
