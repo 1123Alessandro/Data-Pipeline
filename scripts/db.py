@@ -11,7 +11,7 @@ conn = psycopg2.connect(conn_string)
 conn.autocommit = True
 cursor = conn.cursor()
 
-table = pd.read_parquet('./Transaction Table.parquet')
+table = pd.read_parquet('/mnt/c/Users/araza/Documents/1/git repos/Data-Pipeline/Transaction Table.parquet')
 
 print(table.shape)
 
