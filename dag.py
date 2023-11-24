@@ -11,7 +11,8 @@ dag = DAG(
         'retry_delay': timedelta(minutes=1),
     },
     start_date = datetime(2023, 11, 25),
-    schedule = timedelta(minutes=1),
+    schedule = timedelta(minutes=60),
+    catchup = False,
 )
 
 t1 = BashOperator(
