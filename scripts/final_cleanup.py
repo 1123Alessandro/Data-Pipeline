@@ -15,5 +15,5 @@ print(mm)
 
 preview = mm
 preview.avail_date = pd.to_datetime(preview.avail_date) - pd.to_timedelta(7, unit='d')
-view = pd.DataFrame(preview.groupby([pd.Grouper(key='avail_date', freq='W'), 'branch_name']).price.sum())
+view = pd.DataFrame(preview.groupby([pd.Grouper(key='avail_date', freq='W'), 'service']).price.sum())
 view.to_excel('/mnt/c/Users/araza/Documents/1/git repos/Data-Pipeline/Weekly View.xlsx')
