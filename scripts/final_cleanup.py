@@ -12,3 +12,8 @@ mm.to_parquet('/mnt/c/Users/araza/Documents/1/git repos/Data-Pipeline/Transactio
 
 print('Final Transaction Table:')
 print(mm)
+
+preview = mm
+preview.avail_date = pd.to_datetime(preview.avail_date) - pd.to_timedelta(7, unit='d')
+view = pd.DataFrame(preview.groupby([pd.Grouper(key='avail_date', freq='W'), 'branch_name']).price.sum())
+view.to_excel('/mnt/c/Users/araza/Documents/1/git repos/Data-Pipeline/Weekly View.xlsx')
